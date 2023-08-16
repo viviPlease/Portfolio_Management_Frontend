@@ -2,34 +2,45 @@ import { NbMenuItem } from '@nebular/theme';
 
 export const MENU_ITEMS: NbMenuItem[] = [
   {
-    title: 'E-commerce',
+    title: '我的资金',
     icon: 'shopping-cart-outline',
     link: '/pages/dashboard',
     home: true,
   },
   {
-    title: 'IoT Dashboard',
+    title: '账单明细',
+    icon: 'shopping-cart-outline',
+    link: '/pages/tables/tree-grid',
+    home: true,
+  },
+  {
+    title: '基金',
     icon: 'home-outline',
     link: '/pages/iot-dashboard',
   },
   {
-    title: 'FEATURES',
+    title: '股票',
+    icon: 'home-outline',
+    link: '/pages/iot-dashboard',
+  },
+  {
+    title: '个人',
     group: true,
   },
   {
-    title: 'Layout',
+    title: '账户',
     icon: 'layout-outline',
     children: [
       {
-        title: 'Stepper',
+        title: '我的基金',
         link: '/pages/layout/stepper',
       },
       {
-        title: 'List',
+        title: '我的股票',
         link: '/pages/layout/list',
       },
       {
-        title: 'Infinite List',
+        title: '我的资产',
         link: '/pages/layout/infinite-list',
       },
       {
@@ -48,7 +59,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
     icon: 'edit-2-outline',
     children: [
       {
-        title: 'Form Inputs',
+        title: '购入股票',
         link: '/pages/forms/inputs',
       },
       {
@@ -207,21 +218,21 @@ export const MENU_ITEMS: NbMenuItem[] = [
         link: '/pages/tables/smart-table',
       },
       {
-        title: 'Tree Grid',
+        title: '资产明细',
         link: '/pages/tables/tree-grid',
       },
     ],
   },
-  {
-    title: 'Miscellaneous',
-    icon: 'shuffle-2-outline',
-    children: [
-      {
-        title: '404',
-        link: '/pages/miscellaneous/404',
-      },
-    ],
-  },
+  // {
+  //   title: 'Miscellaneous',
+  //   icon: 'shuffle-2-outline',
+  //   children: [
+  //     {
+  //       title: '404',
+  //       link: '/pages/miscellaneous/404',
+  //     },
+  //   ],
+  // },
   {
     title: 'Auth',
     icon: 'lock-outline',
