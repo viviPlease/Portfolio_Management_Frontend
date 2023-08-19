@@ -1,76 +1,33 @@
 @import '../../../../@theme/styles/themes';
 
 @include nb-install-component() {
-
-  nb-card {
-    background-color: transparent;
-    border-width: 0;
-    box-shadow: none;
-    margin: 0;
-  }
-
-  nb-card-header {
-    border-color: transparent;
-  }
-
-  svg {
-    width: 100%;
-  }
-
-  .stroke-pattern {
-    fill: none;
-    stroke: #bdc4cd;
-    stroke-miterlimit: 10;
-    opacity: 0.1;
-    stroke-width: 1px;
-  }
-
-  .stroked-element {
-    stroke-width: 4px;
-    stroke: #bdc4cd;
-    stroke-miterlimit: 10;
-  }
-
-  .room-border {
-    stroke-width: 4px;
-    stroke: #bdc4cd;
-    stroke-miterlimit: 10;
-    fill: none;
-  }
-
-  .room-bg {
-    fill: nb-theme(card-background-color);
-    stroke: transparent;
-    cursor: pointer;
-    stroke-width: 4px;
-  }
-
-  .room-bg-border-grad {
-    fill: none;
-    stroke: none;
-    stroke-width: 4px;
-  }
-
-  .room-text {
-    cursor: pointer;
-    user-select: none;
-    pointer-events: none;
-    fill: nb-theme(text-hint-color);
-  }
-
-  .selected-room {
-    z-index: 40;
-
-    .room-text {
-      fill: nb-theme(text-basic-color);
+  .show-grid {
+    .row {
+      margin: -0.5rem;
     }
-    .room-border {
-      stroke: nb-theme(color-primary-default);
+
+    div[class^=col-] {
+      padding: 0.5rem;
+      box-sizing: border-box;
+
+      div {
+        text-align: center;
+        background-color: nb-theme(background-basic-color-2);
+        padding: 0.75rem 0.25rem;
+        border-radius: 0.25rem;
+      }
     }
   }
 
-  .header {
-    border-bottom: none;
-    padding-bottom: 0;
+  .grid-h {
+    margin-top: 1.5rem;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  .table-responsive {
+    margin-top: 1rem;
   }
 }

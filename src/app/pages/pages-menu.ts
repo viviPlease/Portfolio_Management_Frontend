@@ -4,9 +4,28 @@ export const MENU_ITEMS: NbMenuItem[] = [
   {
     title: '我的资金',
     icon: 'shopping-cart-outline',
+    
     link: '/pages/dashboard',
     home: true,
   },
+  // {
+  //   title: '我的资金',
+  //   icon: 'shopping-cart-outline',
+  //   children: [
+  //     {
+  //       title: '我的资产',
+  //       link: '/pages/dashboard',
+  //     },
+  //     {
+  //       title: '转入资金',
+  //       link: '/pages/layout/list',
+  //     },
+  //     {
+  //       title: '转出资金',
+  //       link: '/pages/layout/infinite-list',
+  //     },
+  //   ]
+  // },
   {
     title: '账单明细',
     icon: 'shopping-cart-outline',
@@ -21,7 +40,12 @@ export const MENU_ITEMS: NbMenuItem[] = [
   {
     title: '股票',
     icon: 'home-outline',
-    link: '/pages/iot-dashboard',
+    link: '/pages/ui-features/grid',
+  },
+  {
+    title: '我的股票',
+    icon: 'home-outline',
+    link: '/pages/charts/chartjs',
   },
   {
     title: '个人',
@@ -223,16 +247,16 @@ export const MENU_ITEMS: NbMenuItem[] = [
       },
     ],
   },
-  // {
-  //   title: 'Miscellaneous',
-  //   icon: 'shuffle-2-outline',
-  //   children: [
-  //     {
-  //       title: '404',
-  //       link: '/pages/miscellaneous/404',
-  //     },
-  //   ],
-  // },
+  {
+    title: 'Miscellaneous',
+    icon: 'shuffle-2-outline',
+    children: [
+      {
+        title: '404',
+        link: '/pages/miscellaneous/404',
+      },
+    ],
+  },
   {
     title: 'Auth',
     icon: 'lock-outline',

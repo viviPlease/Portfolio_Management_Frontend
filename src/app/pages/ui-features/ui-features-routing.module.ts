@@ -16,13 +16,19 @@ const routes: Routes = [{
   }, {
     path: 'icons',
     component: IconsComponent,
-  }, {
-    path: 'typography',
-    component: TypographyComponent,
-  }, {
+  }, 
+  // {
+  //   path: 'typography',
+  //   component: TypographyComponent,
+  // }, 
+  {
     path: 'search-fields',
     component: SearchComponent,
-  }],
+  },
+  {
+    path:'typography/:ticker', component: TypographyComponent,
+  }
+],
 }];
 
 @NgModule({

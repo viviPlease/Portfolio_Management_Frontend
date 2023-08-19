@@ -2,12 +2,12 @@
   <div class="col-md-12">
     <nb-card>
       <nb-card-header>
-        Grid System
+        股票
       </nb-card-header>
       <nb-card-body>
-        <h5 class="grid-h">Stacked to horizontal</h5>
-        <div class="row show-grid">
-          <div class="col-md-1">
+        <!-- <h5 class="grid-h">Stacked to horizontal</h5>
+        <div class="row show-grid"> -->
+          <!-- <div class="col-md-1">
             <div>.col-md-1</div>
           </div>
           <div class="col-md-1">
@@ -175,72 +175,37 @@
           <div class="col-md-6 offset-md-3">
             <div>.col-md-6 .offset-md-3</div>
           </div>
-        </div>
+        </div> -->
 
-        <h5 class="grid-h">Grid options</h5>
+        <!-- <h5 class="grid-h">今日</h5> -->
+        <label class="search-label" for="search">Search:</label> 
+        <input nbInput  id="search" class="search-input">
         <div class="table-responsive">
           <table class="table table-bordered table-striped">
             <thead>
               <tr>
-                <th></th>
-                <th> Extra small devices
-                  <small>Phones (&lt;576px)</small>
+                <th> name
                 </th>
-                <th> Small devices
-                  <small>Tablets (≥576px)</small>
+                <th> currentPrice
                 </th>
-                <th> Medium devices
-                  <small>Desktops (≥768px)</small>
+                <th> openPrice
                 </th>
-                <th> Large devices
-                  <small>Desktops (≥992px)</small>
+                <th> time
                 </th>
-                <th> Large devices
-                  <small>Desktops (≥1200px)</small>
+                <th> Actions
                 </th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th class="text-nowrap" scope="row">Grid behavior</th>
-                <td>Horizontal at all times</td>
-                <td colspan="4">Collapsed to start, horizontal above breakpoints</td>
-              </tr>
-              <tr>
-                <th class="text-nowrap" scope="row">Container width</th>
-                <td>None (auto)</td>
-                <td>540px</td>
-                <td>720px</td>
-                <td>960px</td>
-                <td>1140px</td>
-              </tr>
-              <tr>
-                <th class="text-nowrap" scope="row">Class prefix</th>
-                <td><code>.col-</code></td>
-                <td><code>.col-sm-</code></td>
-                <td><code>.col-md-</code></td>
-                <td><code>.col-lg-</code></td>
-                <td><code>.col-xl-</code></td>
-              </tr>
-              <tr>
-                <th class="text-nowrap" scope="row"># of columns</th>
-                <td colspan="5">12</td>
-              </tr>
-              <tr>
-                <th class="text-nowrap" scope="row">Gutter width</th>
-                <td colspan="5">1.875rem / 30px (15px on each side of a column)</td>
-              </tr>
-              <tr>
-                <th class="text-nowrap" scope="row">Nestable</th>
-                <td colspan="5">Yes</td>
-              </tr>
-              <tr>
-                <th class="text-nowrap" scope="row">Offsets</th>
-                <td colspan="5">Yes</td>
-              </tr>
-              <tr>
-                <th class="text-nowrap" scope="row">Column ordering</th>
-                <td colspan="5">Yes</td>
+                  <tr *ngFor="let stock of stocks | async">
+                <td>{{stock.ticker}}</td>
+                <td>{{stock.currentPrice}}</td>
+                <td>{{stock.openPrice}}</td>
+                <td>{{stock.time}}</td>
+                <td>
+                  <!-- <button (click)="deleteStock(stock.ticker)" class="btn btn-danger">Delete</button> -->
+                    <button (click)="stockDetails(stock.ticker)" class="btn btn-info" style="margin-left: 10px">Details</button>
+                </td>
               </tr>
             </tbody>
           </table>

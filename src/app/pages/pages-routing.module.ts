@@ -5,6 +5,8 @@ import { PagesComponent } from './pages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ECommerceComponent } from './e-commerce/e-commerce.component';
 import { NotFoundComponent } from './miscellaneous/not-found/not-found.component';
+import { TypographyComponent } from './ui-features/typography/typography.component';
+import { ECommerceChartsPanelComponent } from './e-commerce/charts-panel/charts-panel.component';
 
 const routes: Routes = [{
   path: '',
@@ -12,7 +14,11 @@ const routes: Routes = [{
   children: [
     {
       path: 'dashboard',
-      component: ECommerceComponent,
+      children:[
+        {
+          path: '**', component: ECommerceComponent                                                                                                              ,
+        }
+      ]
     },
     {
       path: 'iot-dashboard',
@@ -67,6 +73,15 @@ const routes: Routes = [{
       path: 'miscellaneous',
       loadChildren: () => import('./miscellaneous/miscellaneous.module')
         .then(m => m.MiscellaneousModule),
+    },
+    {
+      path:'ui-features',
+      children:[
+        {
+          path: './typography/:ticker', component: TypographyComponent,
+        }
+      ]
+  
     },
     {
       path: '',

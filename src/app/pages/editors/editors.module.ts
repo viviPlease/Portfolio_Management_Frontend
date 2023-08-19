@@ -12,6 +12,7 @@ import { EditorsRoutingModule, routedComponents } from './editors-routing.module
     ThemeModule,
     EditorsRoutingModule,
     CKEditorModule,
+    
   ],
   declarations: [
     ...routedComponents,

@@ -1,22 +1,82 @@
-<nb-card size="large">
-  <nb-tabset fullWidth (changeTab)="changeTab($event)">
-    <nb-tab tabTitle="Orders">
+<nb-card >
+  <nb-tabset fullWidth>
+    <nb-tab tabTitle="Assets" >
+      
       <div class="chart-container">
-        <ngx-chart-panel-summary [summary]="chartPanelSummary"></ngx-chart-panel-summary>
-        <ngx-chart-panel-header [type]="period"
-                                (periodChange)="setPeriodAndGetChartData($event)">
-        </ngx-chart-panel-header>
-        <ngx-orders-chart #ordersChart [ordersChartData]="ordersChartData"></ngx-orders-chart>
+        <div class="summary-container">
+          <div >
+            <div>Total Assets</div>
+            <div class="h5">{{assets.totalAssets}}</div>
+          </div>
+          <div >
+            <div>Stock Assets</div>
+            <div class="h5">{{assets.stockAssets}}</div>
+          </div>
+          <div >
+            <div>Fund Assets</div>
+            <div class="h5">{{assets.fundAssets}}</div>
+          </div>
+          <div >
+            <div>Balance</div>
+            <div class="h5">{{assets.balance}}</div>
+          </div>
+        </div>
       </div>
     </nb-tab>
-    <nb-tab tabTitle="Profit" [lazyLoad]="true">
-      <div class="chart-container">
-        <ngx-chart-panel-summary [summary]="chartPanelSummary"></ngx-chart-panel-summary>
-        <ngx-chart-panel-header [type]="period"
-                                (periodChange)="setPeriodAndGetChartData($event)">
-        </ngx-chart-panel-header>
-        <ngx-profit-chart #profitChart [profitChartData]="profitChartData"></ngx-profit-chart>
-      </div>
-    </nb-tab>
+        
   </nb-tabset>
+  <nb-card-footer>
+    <div class="row">
+      <form class="form-inline" (ngSubmit)="gotoRefrash()">
+        <div class="col-sm-4">
+        <div class="form-group">
+          <input type="text" nbInput fullWidth id="transInNum" placeholder="$" name="transInNum">
+        </div>  
+      </div>
+      <div class="col-sm-2">
+        <div class="form-group">
+          <button nbButton type="submit" >Transfor Out</button>
+        </div>  
+      </div>
+      </form>
+      
+      <!-- <form (ngSubmit)="gotoRefrash()">
+        <div class="col-sm-4">
+        <div class="form-group">
+          <input type="text" nbInput fullWidth id="transOutNum" placeholder="$">
+        </div>
+      </div>
+      <div class="col-sm-2">
+        <div class="form-group">
+          <button nbButton status="success" >Transfor In</button>
+        </div>  
+      </div>
+      </form> -->
+      
+      
+    </div>
+    
+  </nb-card-footer>
+  
 </nb-card>
+
+<div  style="width: 400px;">
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">name</label>
+      <input type="text" class="form-control" id="firstName"  name="name">
+    </div>
+
+    <div class="form-group">
+      <label for="name">currentPrice</label>
+      <input type="text" class="form-control" id="currentPrice" name="currentPrice">
+    </div>
+
+    <div class="form-group">
+      <label for="name">openPrice</label>
+      <input type="text" class="form-control" id="openPrice"  name="openPrice">
+    </div>
+
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+</div>

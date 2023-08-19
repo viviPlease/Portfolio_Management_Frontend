@@ -1,74 +1,70 @@
-import { Component, OnDestroy, ViewChild } from '@angular/core';
-import { takeWhile } from 'rxjs/operators';
-
-import { OrdersChartComponent } from './charts/orders-chart.component';
-import { ProfitChartComponent } from './charts/profit-chart.component';
-import { OrdersChart } from '../../../@core/data/orders-chart';
-import { ProfitChart } from '../../../@core/data/profit-chart';
-import { OrderProfitChartSummary, OrdersProfitChartData } from '../../../@core/data/orders-profit-chart';
+import { Component, OnInit } from '@angular/core';
+import { Assets } from '../../../domain/assets';
+import { AssetsService } from '../../../service/assets.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'ngx-ecommerce-charts',
   styleUrls: ['./charts-panel.component.scss'],
   templateUrl: './charts-panel.component.html',
 })
-export class ECommerceChartsPanelComponent implements OnDestroy {
+export class ECommerceChartsPanelComponent  {
+  
 
-  private alive = true;
-
-  chartPanelSummary: OrderProfitChartSummary[];
-  period: string = 'week';
-  ordersChartData: OrdersChart;
-  profitChartData: ProfitChart;
-
-  @ViewChild('ordersChart', { static: true }) ordersChart: OrdersChartComponent;
-  @ViewChild('profitChart', { static: true }) profitChart: ProfitChartComponent;
-
-  constructor(private ordersProfitChartService: OrdersProfitChartData) {
-    this.ordersProfitChartService.getOrderProfitChartSummary()
-      .pipe(takeWhile(() => this.alive))
-      .subscribe((summary) => {
-        this.chartPanelSummary = summary;
-      });
-
-    this.getOrdersChartData(this.period);
-    this.getProfitChartData(this.period);
-  }
-
-  setPeriodAndGetChartData(value: string): void {
-    if (this.period !== value) {
-      this.period = value;
+    id!: number;
+    transInNum!:number;
+    transOutNum!:number;
+    assets!: Assets;
+    submitted = false;
+    constructor(private route: ActivatedRoute,private router: Router,
+      private assetsService: AssetsService) { }
+  
+    ngOnInit() {
+      this.assets = new Assets();
+      
+  
+      // this.id = this.route.snapshot.params['id'];
+      this.id=1;
+      
+      this.assetsService.getAssetsById(this.id)
+        .subscribe(data => {
+          console.log(data)
+          this.assets = data;
+        }, error => console.log(error));
     }
 
-    this.getOrdersChartData(value);
-    this.getProfitChartData(value);
-  }
+    transIn() {
+      console.log(11111111)
+      this.transInNum=this.route.snapshot.params['transInNum'];
+      this.assetsService
+      .transforIn(this.transInNum,this.id).subscribe(data => {
+        console.log(data)
 
-  changeTab(selectedTab) {
-    if (selectedTab.tabTitle === 'Profit') {
-      this.profitChart.resizeChart();
-    } else {
-      this.ordersChart.resizeChart();
+        this.gotoRefrash();
+      }, 
+      error => console.log(error));
     }
-  }
+  
+    onSubmit() {
+      console.log(2222222)
+      this.submitted = true;
+      this.transIn();    
+    }
 
-  getOrdersChartData(period: string) {
-    this.ordersProfitChartService.getOrdersChartData(period)
-      .pipe(takeWhile(() => this.alive))
-      .subscribe(ordersChartData => {
-        this.ordersChartData = ordersChartData;
-      });
-  }
+    gotoRefrash() {
+      console.log(3333333)
+      this.router.navigate(['/dashboard']);
+    }
 
-  getProfitChartData(period: string) {
-    this.ordersProfitChartService.getProfitChartData(period)
-      .pipe(takeWhile(() => this.alive))
-      .subscribe(profitChartData => {
-        this.profitChartData = profitChartData;
-      });
-  }
+        // console.log("111111111111");
 
-  ngOnDestroy() {
-    this.alive = false;
-  }
+
+        // console.log(this.assets);
+    
+  
+    // list(){
+    //   this.router.navigate(['assets']);
+    // }
+
+
 }

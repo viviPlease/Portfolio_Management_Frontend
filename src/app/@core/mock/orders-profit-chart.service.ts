@@ -7,21 +7,30 @@ import { ProfitChart, ProfitChartData } from '../data/profit-chart';
 @Injectable()
 export class OrdersProfitChartService extends OrdersProfitChartData {
 
+  private baseUrl = 'http://group9.testweb01.eu.org:8080';
+
+  // constructor(private http: HttpClient) { }
+
+  // getStock(ticker: string): Observable<any> {
+  //   console.log(ticker)
+  //   return this.http.get(`${this.baseUrl}/stock/getstockbyticker/${ticker}`);
+  // }
+
   private summary = [
     {
-      title: 'Marketplace',
+      title: 'Total Assets',
       value: 3654,
     },
     {
-      title: 'Last Month',
+      title: 'Stock Assets',
       value: 946,
     },
     {
-      title: 'Last Week',
+      title: 'Fund Assets',
       value: 654,
     },
     {
-      title: 'Today',
+      title: 'Balance',
       value: 230,
     },
   ];

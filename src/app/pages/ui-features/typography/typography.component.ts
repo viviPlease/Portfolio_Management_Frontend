@@ -1,27 +1,35 @@
-import { Component, OnDestroy } from '@angular/core';
-import { NbThemeService, NbMediaBreakpoint, NbMediaBreakpointsService } from '@nebular/theme';
+import { Component, OnInit } from '@angular/core';
+import { Stock } from '../../../domain/stock';
+import { Router, ActivatedRoute } from '@angular/router';
+import { StockService } from '../../../service/stock.service';
 
 @Component({
   selector: 'ngx-typography',
   styleUrls: ['./typography.component.scss'],
   templateUrl: './typography.component.html',
 })
-export class TypographyComponent implements OnDestroy {
-  breakpoint: NbMediaBreakpoint;
-  breakpoints: any;
-  themeSubscription: any;
+export class TypographyComponent  implements OnInit {
 
-  constructor(private themeService: NbThemeService,
-              private breakpointService: NbMediaBreakpointsService) {
+  ticker!: string;
+  stock!: Stock;
 
-    this.breakpoints = this.breakpointService.getBreakpointsMap();
-    this.themeSubscription = this.themeService.onMediaQueryChange()
-      .subscribe(([oldValue, newValue]) => {
-        this.breakpoint = newValue;
-      });
+  constructor(private route: ActivatedRoute,private router: Router,
+    private employeeService: StockService) { }
+
+  ngOnInit() {
+    this.stock = new Stock();
+
+    this.ticker = this.route.snapshot.params['ticker'];
+    console.log(this.route.snapshot.params)
+
+    this.employeeService.getStock(this.ticker)
+      .subscribe(data => {
+        console.log(data)
+        this.stock = data;
+      }, error => console.log(error));
   }
 
-  ngOnDestroy() {
-    this.themeSubscription.unsubscribe();
+  list(){
+    this.router.navigate(['stocks']);
   }
 }

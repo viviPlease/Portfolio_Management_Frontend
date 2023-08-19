@@ -8,6 +8,8 @@ import {
   NbRequestPasswordComponent,
   NbResetPasswordComponent,
 } from '@nebular/auth';
+import { TypographyComponent } from './pages/ui-features/typography/typography.component';
+import { UiFeaturesComponent } from './pages/ui-features/ui-features.component';
 
 
 
@@ -21,6 +23,17 @@ export const routes: Routes = [
     path: 'auth',
     loadChildren: () => import('./auth/auth.module').then(m => m.NgxAuthModule),
   },
+  // {
+  //   path:'ui-features/typography/:ticker', component: TypographyComponent,
+  //   // component:UiFeaturesComponent,
+  //   // children:[
+  //   //   {
+  //   //     path: './typography/:ticker', component: TypographyComponent
+  //   //   }
+  //   // ]
+
+  // },
+
   // {
   //   path: 'auth',
   //   component: NbAuthComponent,
