@@ -35,7 +35,7 @@ export class RoomSelectorComponent implements OnInit {
   }
 
   fundDetails(code: string){
-    console.log(this.funds)
-    this.router.navigate(['details', code]);
+    console.log(code)
+    this.router.navigate(['pages/ui-features/funddetails', code]);
   }
 }

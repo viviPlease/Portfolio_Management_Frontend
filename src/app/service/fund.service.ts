@@ -10,8 +10,8 @@ export class FundService {
 
   constructor(private http: HttpClient) { }
 
-  getFund(code: number): Observable<any> {
-    return this.http.get(`${this.baseUrl}/fund/${code}`);
+  getFund(code: string): Observable<any> {
+    return this.http.get(`${this.baseUrl}/fund/getfundbycode?code=${code}`);
   }
 
   // // createEmployee(employee: Object): Observable<Object> {

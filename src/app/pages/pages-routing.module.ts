@@ -7,6 +7,7 @@ import { ECommerceComponent } from './e-commerce/e-commerce.component';
 import { NotFoundComponent } from './miscellaneous/not-found/not-found.component';
 import { TypographyComponent } from './ui-features/typography/typography.component';
 import { ECommerceChartsPanelComponent } from './e-commerce/charts-panel/charts-panel.component';
+import { FundDetailsComponent } from './ui-features/fund-details/fund-details.component';
 
 const routes: Routes = [{
   path: '',
@@ -79,6 +80,9 @@ const routes: Routes = [{
       children:[
         {
           path: './typography/:ticker', component: TypographyComponent,
+        },
+        {
+          path: './funddetails/:code', component: FundDetailsComponent,
         }
       ]
   
