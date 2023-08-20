@@ -7,7 +7,11 @@ import { ECommerceComponent } from './e-commerce/e-commerce.component';
 import { NotFoundComponent } from './miscellaneous/not-found/not-found.component';
 import { TypographyComponent } from './ui-features/typography/typography.component';
 import { ECommerceChartsPanelComponent } from './e-commerce/charts-panel/charts-panel.component';
+// <<<<<<< HEAD
 import { ChartPanelSummaryComponent } from './e-commerce/charts-panel/chart-panel-summary/chart-panel-summary.component';
+// =======
+import { FundDetailsComponent } from './ui-features/fund-details/fund-details.component';
+// >>>>>>> 11c0f15bb0c064defedc6bd69ac054a593605956
 
 const routes: Routes = [{
   path: '',
@@ -75,6 +79,9 @@ const routes: Routes = [{
       children:[
         {
           path: './typography/:ticker', component: TypographyComponent,
+        },
+        {
+          path: './funddetails/:code', component: FundDetailsComponent,
         }
       ]
   
