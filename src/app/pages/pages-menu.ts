@@ -48,6 +48,11 @@ export const MENU_ITEMS: NbMenuItem[] = [
     link: '/pages/forms/inputs',
   },
   {
+    title: '我的基金',
+    icon: 'home-outline',
+    link: '/pages/forms/myfunds',
+  },
+  {
     title: '个人',
     group: true,
   },
