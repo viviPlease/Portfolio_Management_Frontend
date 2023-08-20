@@ -8,13 +8,14 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./charts-panel.component.scss'],
   templateUrl: './charts-panel.component.html',
 })
-export class ECommerceChartsPanelComponent  {
+export class ECommerceChartsPanelComponent  implements OnInit{
   
 
     id!: number;
-    transInNum!:number;
+    amount!:string;
     transOutNum!:number;
     assets!: Assets;
+    a!:number
     submitted = false;
     constructor(private route: ActivatedRoute,private router: Router,
       private assetsService: AssetsService) { }
@@ -34,11 +35,14 @@ export class ECommerceChartsPanelComponent  {
     }
 
     transIn() {
-      console.log(11111111)
-      this.transInNum=this.route.snapshot.params['transInNum'];
+      
+      // this.amount=this.route.snapshot.params['amount'];
+      
+      this.a=parseFloat(this.amount)
+      this.id=1
       this.assetsService
-      .transforIn(this.transInNum,this.id).subscribe(data => {
-        console.log(data)
+      .transforIn(this.id,this.a).subscribe(data => {
+        // console.log(data)
 
         this.gotoRefrash();
       }, 
@@ -46,25 +50,12 @@ export class ECommerceChartsPanelComponent  {
     }
   
     onSubmit() {
-      console.log(2222222)
       this.submitted = true;
       this.transIn();    
     }
 
     gotoRefrash() {
-      console.log(3333333)
+      this.ngOnInit();
       this.router.navigate(['/dashboard']);
     }
-
-        // console.log("111111111111");
-
-
-        // console.log(this.assets);
-    
-  
-    // list(){
-    //   this.router.navigate(['assets']);
-    // }
-
-
 }

@@ -27,56 +27,34 @@
   </nb-tabset>
   <nb-card-footer>
     <div class="row">
-      <form class="form-inline" (ngSubmit)="gotoRefrash()">
+      <form class="form-inline" (ngSubmit)="onSubmit()">
         <div class="col-sm-4">
-        <div class="form-group">
-          <input type="text" nbInput fullWidth id="transInNum" placeholder="$" name="transInNum">
-        </div>  
-      </div>
-      <div class="col-sm-2">
-        <div class="form-group">
-          <button nbButton type="submit" >Transfor Out</button>
-        </div>  
-      </div>
-      </form>
-      
-      <!-- <form (ngSubmit)="gotoRefrash()">
-        <div class="col-sm-4">
-        <div class="form-group">
-          <input type="text" nbInput fullWidth id="transOutNum" placeholder="$">
+          <div class="form-group">
+            <input type="text" nbInput fullWidth id="amount" placeholder="$" name="amount" required [(ngModel)]="amount">
+          </div>  
         </div>
-      </div>
-      <div class="col-sm-2">
-        <div class="form-group">
-          <button nbButton status="success" >Transfor In</button>
-        </div>  
-      </div>
-      </form> -->
-      
-      
+        <div class="col-sm-2">
+          <div class="form-group">
+            <button nbButton type="submit" >Transfor Out</button>
+          </div>  
+        </div>
+      </form>
+
+      <form class="form-inline" (ngSubmit)="onSubmit()">
+        <div class="col-sm-4">
+          <div class="form-group1">
+            <input type="text" nbInput fullWidth id="amount" placeholder="$" name="amount" >
+          </div>  
+        </div>
+        <div class="col-sm-2">
+          <div class="form-group1">
+            <button nbButton type="submit"  status="success" >Transfor In</button>
+          </div>  
+        </div>
+      </form>
     </div>
-    
   </nb-card-footer>
-  
 </nb-card>
 
-<!-- <div  style="width: 400px;">
-  <form (ngSubmit)="onSubmit()">
-    <div class="form-group">
-      <label for="name">name</label>
-      <input type="text" class="form-control" id="firstName"  name="name">
-    </div>
 
-    <div class="form-group">
-      <label for="name">currentPrice</label>
-      <input type="text" class="form-control" id="currentPrice" name="currentPrice">
-    </div>
 
-    <div class="form-group">
-      <label for="name">openPrice</label>
-      <input type="text" class="form-control" id="openPrice"  name="openPrice">
-    </div>
-
-    <button type="submit" class="btn btn-success">Submit</button>
-  </form>
-</div> -->

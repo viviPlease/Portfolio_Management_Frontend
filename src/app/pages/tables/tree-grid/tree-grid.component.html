@@ -1,34 +1,43 @@
+
 <nb-card>
+  <nb-card-header>
+    交易明细
+  </nb-card-header>
   <nb-card-body>
-
-    <label class="search-label" for="search">Search:</label>
-    <input nbInput id="search" class="search-input">
-
-    <table [nbTreeGrid]="dataSource" [nbSort]="dataSource" (sort)="updateSort($event)">
-
-      <tr nbTreeGridHeaderRow *nbTreeGridHeaderRowDef="allColumns"></tr>
-      <tr nbTreeGridRow *nbTreeGridRowDef="let row; columns: allColumns"></tr>
-
-      <ng-container [nbTreeGridColumnDef]="customColumn">
-        <th nbTreeGridHeaderCell [nbSortHeader]="getSortDirection(customColumn)" *nbTreeGridHeaderCellDef>
-          {{customColumn}}
-        </th>
-        <td nbTreeGridCell *nbTreeGridCellDef="let row">
-          <ngx-fs-icon [kind]="row.data.kind" [expanded]="row.expanded"></ngx-fs-icon>
-          {{row.data[customColumn]}}
-        </td>
-      </ng-container>
-
-      <ng-container *ngFor="let column of defaultColumns; let index = index"
-                    [nbTreeGridColumnDef]="column"
-                    [showOn]="getShowOn(index)">
-        <th nbTreeGridHeaderCell [nbSortHeader]="getSortDirection(column)" *nbTreeGridHeaderCellDef>
-          {{column}}
-        </th>
-        <td nbTreeGridCell *nbTreeGridCellDef="let row">{{row.data[column] || '-'}}</td>
-      </ng-container>
-
-    </table>
-
+    <label class="search-label" for="search">Search:</label> 
+    <input nbInput  id="search" class="search-input">
+    <div class="table-responsive">
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th> name
+            </th>
+            <th> type
+            </th>
+            <th> price
+            </th>
+            <th> amount
+            </th>
+            <th> time
+            </th>
+            <th> Actions
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+              <tr *ngFor="let trade of trades | async">
+            <td>{{trade.ticker}}</td>
+            <td>{{trade.type}}</td>
+            <td>{{trade.price}}</td>
+            <td>{{trade.amount}}</td>
+            <td>{{trade.time}}</td>
+            <td>
+              <!-- <button (click)="deleteStock(stock.ticker)" class="btn btn-danger">Delete</button>
+                <button (click)="stockDetails(stock.ticker)" class="btn btn-info" style="margin-left: 10px">Details</button> -->
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </nb-card-body>
 </nb-card>

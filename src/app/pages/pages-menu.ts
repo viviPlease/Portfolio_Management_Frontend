@@ -45,7 +45,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
   {
     title: '我的股票',
     icon: 'home-outline',
-    link: '/pages/charts/chartjs',
+    link: '/pages/forms/inputs',
   },
   {
     title: '个人',

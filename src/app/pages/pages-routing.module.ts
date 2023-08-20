@@ -7,18 +7,14 @@ import { ECommerceComponent } from './e-commerce/e-commerce.component';
 import { NotFoundComponent } from './miscellaneous/not-found/not-found.component';
 import { TypographyComponent } from './ui-features/typography/typography.component';
 import { ECommerceChartsPanelComponent } from './e-commerce/charts-panel/charts-panel.component';
+import { ChartPanelSummaryComponent } from './e-commerce/charts-panel/chart-panel-summary/chart-panel-summary.component';
 
 const routes: Routes = [{
   path: '',
   component: PagesComponent,
   children: [
     {
-      path: 'dashboard',
-      children:[
-        {
-          path: '**', component: ECommerceComponent                                                                                                              ,
-        }
-      ]
+      path: 'dashboard',component: ECommerceChartsPanelComponent,
     },
     {
       path: 'iot-dashboard',

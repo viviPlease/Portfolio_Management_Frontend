@@ -1,22 +1,42 @@
 <div class="row">
-  <div class="col-lg-6">
+  <div class="col-md-12">
     <nb-card>
-      <nb-card-header>购入股票</nb-card-header>
+      <nb-card-header>
+        My Stocks
+      </nb-card-header>
       <nb-card-body>
-        <input type="text" nbInput fullWidth placeholder="Project">
-        <div class="full-name-inputs">
-          <input type="text" nbInput fullWidth placeholder="Nick">
-          <input type="text" nbInput fullWidth placeholder="Last Name">
+        <label class="search-label" for="search">Search:</label> 
+        <input nbInput  id="search" class="search-input">
+        <div class="table-responsive">
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th> Name
+                </th>
+                <th> Ticker
+                </th>
+                <th> Amount
+                </th>
+                <th> CurrentPrice
+                </th>
+                <th> Actions
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+                  <tr *ngFor="let stockhold of stockhold | async">
+                <td>{{stockhold.stockName}}</td>
+                <td>{{stockhold.ticker}}</td>
+                <td>{{stockhold.amount}}</td>
+                <td>{{stockhold.currentPrice}}</td>
+                <td>
+                  <!-- <button (click)="deleteStock(stock.ticker)" class="btn btn-danger">Delete</button>
+                    <button (click)="stockDetails(stock.ticker)" class="btn btn-info" style="margin-left: 10px">Details</button> -->
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-        <input type="password" nbInput fullWidth placeholder="Password">
-        <input type="text" nbInput fullWidth shape="rectangle" placeholder="Rectangle border">
-        <input type="text" nbInput fullWidth shape="semi-round" placeholder="Semi-round border">
-        <input type="text" nbInput fullWidth shape="round" placeholder="Rounded border">
-        <input type="text" nbInput fullWidth placeholder="Disabled input" disabled/>
-        <textarea rows="5" nbInput fullWidth shape="round"  placeholder="Text Area"></textarea>
-        <input type="text" nbInput fullWidth fieldSize="small"  placeholder="Small Input">
-        <input type="text" nbInput fullWidth fieldSize="medium"  placeholder="Medium Input">
-        <input type="text" nbInput fullWidth fieldSize="large"  placeholder="Large Input">
       </nb-card-body>
     </nb-card>
   </div>
