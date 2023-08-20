@@ -22,18 +22,11 @@ export class GridComponent implements OnInit {
     this.stocks = this.stockService.getStocksList();
   }
 
-  deleteStock(ticker: string) {
-    this.stockService.deleteStock(ticker)
-      .subscribe(
-        data => {
-          console.log(data);
-          this.reloadData();
-        },
-        error => console.log(error));
-  }
+  // buyStock(ticker: string) {
+  //   this.router.navigate(['pages/ui-features/typography', ticker]);
+  // }
 
   stockDetails(ticker: string){
-    console.log(this.stocks)
     this.router.navigate(['pages/ui-features/typography', ticker]);
   }
 }
