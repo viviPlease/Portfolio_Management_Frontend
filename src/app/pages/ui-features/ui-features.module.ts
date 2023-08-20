@@ -9,6 +9,7 @@ import { FundDetailsComponent } from './fund-details/fund-details.component';
 import { IconsComponent } from './icons/icons.component';
 import { TypographyComponent } from './typography/typography.component';
 import { SearchComponent } from './search-fields/search-fields.component';
+import { FormsModule } from '@angular/forms';
 
 const components = [
   UiFeaturesComponent,
@@ -21,6 +22,7 @@ const components = [
 
 @NgModule({
   imports: [
+    FormsModule,
     NbCardModule,
     NbButtonModule,
     NbPopoverModule,
