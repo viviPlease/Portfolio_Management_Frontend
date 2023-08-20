@@ -13,7 +13,7 @@ export class ECommerceChartsPanelComponent  implements OnInit{
 
     id!: number;
     amount!:string;
-    transOutNum!:number;
+    transOutNum!:string;
     assets!: Assets;
     a!:number
     submitted = false;
@@ -22,8 +22,7 @@ export class ECommerceChartsPanelComponent  implements OnInit{
   
     ngOnInit() {
       this.assets = new Assets();
-      
-  
+      console.log(this.amount)
       // this.id = this.route.snapshot.params['id'];
       this.id=1;
       
@@ -37,7 +36,7 @@ export class ECommerceChartsPanelComponent  implements OnInit{
     transIn() {
       
       // this.amount=this.route.snapshot.params['amount'];
-      
+      console.log(this.amount)
       this.a=parseFloat(this.amount)
       this.id=1
       this.assetsService
@@ -52,6 +51,19 @@ export class ECommerceChartsPanelComponent  implements OnInit{
     onSubmit() {
       this.submitted = true;
       this.transIn();    
+    }
+
+    transferOut(){
+      console.log(this.transOutNum)
+      this.a=parseFloat(this.transOutNum)
+      this.id=1
+      this.assetsService
+      .transforOut(this.id,this.a).subscribe(data => {
+        // console.log(data)
+
+        this.gotoRefrash();
+      }, 
+      error => console.log(error));
     }
 
     gotoRefrash() {

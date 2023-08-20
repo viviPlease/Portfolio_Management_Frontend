@@ -23,6 +23,10 @@ export class AssetsService {
     return this.http.post(`${this.baseUrl}/transferin`, {id,amount});
   }
 
+  transforOut(id:number,amount: number): Observable<Object> {
+    return this.http.post(`${this.baseUrl}/transferout`, {id,amount});
+  }
+
   // deleteFund(name: string): Observable<any> {
   //   return this.http.delete(`${this.baseUrl}/fund/${name}`, { responseType: 'text' });
   // }

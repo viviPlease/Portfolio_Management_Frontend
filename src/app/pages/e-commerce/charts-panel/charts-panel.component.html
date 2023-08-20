@@ -27,15 +27,15 @@
   </nb-tabset>
   <nb-card-footer>
     <div class="row">
-      <form class="form-inline" (ngSubmit)="onSubmit()">
+      <form class="form-inline" (ngSubmit)="transferOut()">
         <div class="col-sm-4">
           <div class="form-group">
-            <input type="text" nbInput fullWidth id="amount" placeholder="$" name="amount" required [(ngModel)]="amount">
+            <input type="text" nbInput fullWidth id="amount" placeholder="$" name="amount" required [(ngModel)]="transOutNum">
           </div>  
         </div>
         <div class="col-sm-2">
           <div class="form-group">
-            <button nbButton type="submit" >Transfor Out</button>
+            <button nbButton type="submit" >Transfer Out</button>
           </div>  
         </div>
       </form>
@@ -43,12 +43,12 @@
       <form class="form-inline" (ngSubmit)="onSubmit()">
         <div class="col-sm-4">
           <div class="form-group1">
-            <input type="text" nbInput fullWidth id="amount" placeholder="$" name="amount" >
+            <input type="text" nbInput fullWidth id="amount" placeholder="$" name="amount" [(ngModel)]="amount">
           </div>  
         </div>
         <div class="col-sm-2">
           <div class="form-group1">
-            <button nbButton type="submit"  status="success" >Transfor In</button>
+            <button nbButton type="submit" status="success" >Transfer In</button>
           </div>  
         </div>
       </form>
