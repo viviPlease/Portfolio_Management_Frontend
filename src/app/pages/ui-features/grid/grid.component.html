@@ -30,8 +30,9 @@
                 <td>{{stock.openPrice}}</td>
                 <td>{{stock.time}}</td>
                 <td>
-                  <!-- <button (click)="deleteStock(stock.ticker)" class="btn btn-danger">Delete</button> -->
-                    <button (click)="stockDetails(stock.ticker)" class="btn btn-info" style="margin-left: 10px">Details</button>
+                  
+                    <button (click)="stockDetails(stock.ticker)" class="btn btn-info" style="margin-left: 10px">Details & Buy</button>
+                    <!-- <button (click)="buyStock(stock.ticker)" class="btn btn-success" >Buy</button> -->
                 </td>
               </tr>
             </tbody>

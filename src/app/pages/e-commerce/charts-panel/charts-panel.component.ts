@@ -39,7 +39,7 @@ export class ECommerceChartsPanelComponent  implements OnInit{
       // this.amount=this.route.snapshot.params['amount'];
       
       this.a=parseFloat(this.amount)
-      this.id=1
+      this.id=4
       this.assetsService
       .transforIn(this.id,this.a).subscribe(data => {
         // console.log(data)

@@ -32,13 +32,25 @@ export class StockholdService {
     return this.http.get(`${this.baseUrl}/getallstockhold/${accountId}`);
   }
 
-  gettrades(accountId:number,startTime:string,endTime:string): Observable<any> {
+  getStocktrades(accountId:number,startTime:string,endTime:string): Observable<any> {
     const params = new HttpParams()
     .set('accountId', accountId.toString())
     .set('startTIme', startTime)
     .set('endTime', endTime);
     return this.http.get(`${this.baseUrl}/gettrades`,{params});
   }
+
+  buystock(accountId:number,ticker:string,amount:number): Observable<Object> {
+    console.log('111111111')
+    const params = new HttpParams()
+    .set('accountId', accountId.toString())
+    .set('ticker', ticker)
+    .set('amount', amount);
+    return this.http.post(`${this.baseUrl}/buystock`, {params});
+  }
+
+
+
 
 
 }

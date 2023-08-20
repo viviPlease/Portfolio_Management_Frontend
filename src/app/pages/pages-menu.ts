@@ -27,7 +27,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
   //   ]
   // },
   {
-    title: '账单明细',
+    title: '股票交易明细',
     icon: 'shopping-cart-outline',
     link: '/pages/tables/tree-grid',
     home: true,

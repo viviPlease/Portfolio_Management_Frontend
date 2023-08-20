@@ -28,7 +28,7 @@ export class TreeGridComponent implements OnInit {
     this.accoundId=4
     // this.endTime=
     // this.startTime=null
-    this.trades = this.stockholdService.gettrades(this.accoundId,"2023-08-15T10:30:00Z","2023-08-19T10:30:00Z");
+    this.trades = this.stockholdService.getStocktrades(this.accoundId,"2023-08-15T10:30:00Z","2023-08-19T10:30:00Z");
   }
 
   // deleteStock(ticker: string) {
