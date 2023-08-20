@@ -20,6 +20,7 @@ import { DatepickerComponent } from './datepicker/datepicker.component';
 import { ButtonsComponent } from './buttons/buttons.component';
 import { FormsModule as ngFormsModule } from '@angular/forms';
 import { MyFundsComponent } from './my-funds/my-funds.component';
+import { MyFundsTradeComponent } from './my-funds-trade/my-funds-trade.component';
 
 @NgModule({
   imports: [
@@ -43,7 +44,8 @@ import { MyFundsComponent } from './my-funds/my-funds.component';
     FormInputsComponent,
     FormLayoutsComponent,
     DatepickerComponent,
-    MyFundsComponent
+    MyFundsComponent,
+    MyFundsTradeComponent
   ],
 })
 export class FormsModule { }

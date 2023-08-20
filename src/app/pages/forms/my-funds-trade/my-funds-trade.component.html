@@ -1,0 +1,44 @@
+<div class="row">
+  <div class="col-md-12">
+    <nb-card>
+      <nb-card-header>
+        My Funds Trade History
+      </nb-card-header>
+      <nb-card-body>
+        <label class="search-label" for="search">Search:</label> 
+        <input nbInput  id="search" class="search-input">
+        <div class="table-responsive">
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th> Time
+                </th>
+                <th> Code
+                </th>
+                <th> Type
+                </th>
+                <th> Subscription Price
+                </th>
+                <th> Amount
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+                  <tr *ngFor="let fundtrade of fundtrades | async">
+                <td>{{fundtrade.time}}</td>
+                <td>{{fundtrade.code}}</td>
+                <td>{{fundtrade.type}}</td>
+                <td>{{fundtrade.subscriptionPrice}}</td>
+                <td>{{fundtrade.amount}}</td>
+                <td>
+                  <!-- <button (click)="deleteStock(stock.ticker)" class="btn btn-danger">Delete</button>
+                    <button (click)="stockDetails(stock.ticker)" class="btn btn-info" style="margin-left: 10px">Details</button> -->
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>

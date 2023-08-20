@@ -53,6 +53,11 @@ export const MENU_ITEMS: NbMenuItem[] = [
     link: '/pages/forms/myfunds',
   },
   {
+    title: '基金交易记录',
+    icon: 'home-outline',
+    link: '/pages/forms/myfundstrade',
+  },
+  {
     title: '个人',
     group: true,
   },

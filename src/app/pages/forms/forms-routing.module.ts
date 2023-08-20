@@ -7,6 +7,7 @@ import { FormLayoutsComponent } from './form-layouts/form-layouts.component';
 import { DatepickerComponent } from './datepicker/datepicker.component';
 import { ButtonsComponent } from './buttons/buttons.component';
 import { MyFundsComponent } from './my-funds/my-funds.component';
+import { MyFundsTradeComponent } from './my-funds-trade/my-funds-trade.component';
 
 const routes: Routes = [
   {
@@ -20,6 +21,10 @@ const routes: Routes = [
       {
         path: 'myfunds',
         component: MyFundsComponent,
+      },
+      {
+        path: 'myfundstrade',
+        component: MyFundsTradeComponent,
       },
       {
         path: 'layouts',
