@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class AssetsService {
 
-  private baseUrl = 'http://localhost:8080/assets';
+  private baseUrl = 'http://group9.testweb01.eu.org:8080/assets';
 
   constructor(private http: HttpClient) { }
 
@@ -19,8 +19,8 @@ export class AssetsService {
   //   return this.http.post(`${this.baseUrl}`, employee);
   // }
 
-  transforIn(id:number,transInNum: number): Observable<Object> {
-    return this.http.post(`${this.baseUrl}/transferin`, {id,transInNum});
+  transforIn(id:number,amount: number): Observable<Object> {
+    return this.http.post(`${this.baseUrl}/transferin`, {id,amount});
   }
 
   // deleteFund(name: string): Observable<any> {
