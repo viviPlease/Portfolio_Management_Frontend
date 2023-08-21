@@ -28,7 +28,7 @@ export class TreeGridComponent implements OnInit {
     this.accoundId=4
     // this.endTime=
     // this.startTime=null
-    this.trades = this.stockholdService.getStocktrades(this.accoundId,"2023-08-15T10:30:00Z","2023-08-19T10:30:00Z");
+    this.trades = this.stockholdService.getStocktrades(this.accoundId,"","");
   }
 
   // deleteStock(ticker: string) {
@@ -41,8 +41,7 @@ export class TreeGridComponent implements OnInit {
   //       error => console.log(error));
   // }
 
-  // stockDetails(ticker: string){
-  //   console.log(this.stocks)
-  //   this.router.navigate(['pages/ui-features/typography', ticker]);
-  // }
+  stockDetails(ticker: string){
+    this.router.navigate(['pages/ui-features/typography', ticker]);
+  }
 }

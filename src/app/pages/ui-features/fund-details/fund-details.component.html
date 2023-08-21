@@ -1,4 +1,4 @@
-  <div class="col-md-6 col-xxxl-12">
+  <div class="col-md-12 ">
     <nb-card size="medium" class="headings-card">
       <nb-card-header>
         <h1>{{fund.code}}</h1>
@@ -71,6 +71,28 @@
             {{stock.vol}}
           </div>
         </div> -->
+        <div class="header">
+          <!-- <div class="row"> -->
+            <form class="form-inline" >
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <input type="text" nbInput fullWidth id="buyAmount" placeholder="$" name="buyAmount" >
+                </div>  
+              </div>
+              <div class="col-sm-2">
+                <div class="form-group">
+                  <button nbButton type="submit"  status="success" >Buy</button>
+                </div>  
+              </div>
+              <div class="detail">
+
+              <!-- <div *ngIf="buySuccessMessage" class="success-message">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Buy successfully!
+              </div> -->
+            </div>
+          <!-- </div> -->
+          </form>
+        </div>
       </nb-card-body>
     </nb-card>
   </div>

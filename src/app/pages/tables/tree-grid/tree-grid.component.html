@@ -1,25 +1,25 @@
 
 <nb-card>
   <nb-card-header>
-    交易明细
+    Stock Tradeing Records
   </nb-card-header>
   <nb-card-body>
     <div class="table-responsive">
       <table class="table table-bordered table-striped">
         <thead>
           <tr>
-            <th> name
+            <th> Name
             </th>
-            <th> type
+            <th> Type
             </th>
-            <th> price
+            <th> Price
             </th>
-            <th> amount
+            <th> Amount
             </th>
-            <th> time
+            <th> Time
             </th>
-            <th> Actions
-            </th>
+            <!-- <th> Actions
+            </th> -->
           </tr>
         </thead>
         <tbody>
@@ -28,11 +28,11 @@
             <td>{{trade.type}}</td>
             <td>{{trade.price}}</td>
             <td>{{trade.amount}}</td>
-            <td>{{trade.time}}</td>
-            <td>
-              <!-- <button (click)="deleteStock(stock.ticker)" class="btn btn-danger">Delete</button>
-                <button (click)="stockDetails(stock.ticker)" class="btn btn-info" style="margin-left: 10px">Details</button> -->
-            </td>
+            <td>{{trade.time | date:'yyyy-MM-dd HH:mm'}}</td>
+            <!-- <td>
+              <button (click)="deleteStock(stock.ticker)" class="btn btn-danger">Delete</button>
+                <button (click)="stockDetails(stock.ticker)" class="btn btn-info" style="margin-left: 10px">Sell Stock</button>
+            </td> -->
           </tr>
         </tbody>
       </table>

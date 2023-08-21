@@ -2,7 +2,7 @@
   <div class="col-md-12">
     <nb-card>
       <nb-card-header>
-        全部基金
+        Funds
       </nb-card-header>
       <nb-card-body>
         <label class="search-label" for="search">Search:</label> 
@@ -29,8 +29,9 @@
                 <td>{{fund.unitNet}}</td>
                 <td>{{fund.accNet}}</td>
                 <td>{{fund.time}}</td>
-                <td><button (click)="deleteFund(fund.name)" class="btn btn-danger">Delete</button>
-                    <button (click)="fundDetails(fund.code)" class="btn btn-info" style="margin-left: 10px">Details</button>
+                <td>
+                  <!-- <button (click)="deleteFund(fund.name)" class="btn btn-danger">Delete</button> -->
+                    <button (click)="fundDetails(fund.code)" class="btn btn-info" style="margin-left: 10px">Details & Buy</button>
                 </td>
               </tr>
             </tbody>

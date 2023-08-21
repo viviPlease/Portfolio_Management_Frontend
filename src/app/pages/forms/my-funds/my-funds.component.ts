@@ -36,9 +36,8 @@ export class MyFundsComponent implements OnInit {
   //       error => console.log(error));
   // }
 
-  // stockDetails(ticker: string){
-  //   console.log(this.stockhold)
-  //   this.router.navigate(['pages/ui-features/typography', ticker]);
-  // }
+  stockDetails(ticker: string){
+    this.router.navigate(['pages/ui-features/typography', ticker]);
+  }
 }
 
