@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Assets } from '../../../domain/assets';
 import { AssetsService } from '../../../service/assets.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import Chart from 'chart.js';
+
 
 @Component({
   selector: 'ngx-ecommerce-charts',
@@ -31,7 +33,30 @@ export class ECommerceChartsPanelComponent  implements OnInit{
         .subscribe(data => {
           // console.log(data)
           this.assets = data;
+          let pieChartCtx = document.getElementById("assetsPieChart")
+        let chartData = {
+          datasets: [
+              {
+                  data: [data.stockAssets, data.fundAssets, data.balance],
+                  backgroundColor: [
+                    'rgb(255, 99, 132)',
+                    'rgb(54, 162, 235)',
+                    'rgb(255, 205, 86)'
+                  ],
+              }
+          ],
+      
+          // These labels appear in the legend and in the tooltips when hovering different arcs
+          labels: ["Stock Assets", "Fund Assets", "Balance"]
+        };
+        let myPieChart = new Chart(pieChartCtx, {
+          type: "pie",
+          data: chartData,
+        });
         }, error => console.log(error));
+
+        
+
     }
 
     transIn() {
