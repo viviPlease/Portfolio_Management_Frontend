@@ -26,7 +26,7 @@ export class MyFundsTradeComponent implements OnInit {
   reloadData() {
     this.accountId=4;
     this.stockhold = this.fundholdService.getFundholdList(this.accountId);
-    this.fundtrades = this.fundholdService.gettrades(1,null,null);
+    this.fundtrades = this.fundholdService.gettrades(this.accountId,null,null);
   }
 
   // deleteStock(ticker: string) {
