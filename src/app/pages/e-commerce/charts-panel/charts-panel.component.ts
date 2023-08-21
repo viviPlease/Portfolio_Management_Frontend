@@ -22,13 +22,14 @@ export class ECommerceChartsPanelComponent  implements OnInit{
   
     ngOnInit() {
       this.assets = new Assets();
-      console.log(this.amount)
+      // console.log(this.amount)
       // this.id = this.route.snapshot.params['id'];
-      this.id=1;
-      
+      this.id=4;
+      this.amount=null;
+      this.transOutNum=null;
       this.assetsService.getAssetsById(this.id)
         .subscribe(data => {
-          console.log(data)
+          // console.log(data)
           this.assets = data;
         }, error => console.log(error));
     }
@@ -56,11 +57,9 @@ export class ECommerceChartsPanelComponent  implements OnInit{
     transferOut(){
       console.log(this.transOutNum)
       this.a=parseFloat(this.transOutNum)
-      this.id=1
+      this.id=4
       this.assetsService
       .transforOut(this.id,this.a).subscribe(data => {
-        // console.log(data)
-
         this.gotoRefrash();
       }, 
       error => console.log(error));

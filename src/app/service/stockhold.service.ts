@@ -40,17 +40,23 @@ export class StockholdService {
     return this.http.get(`${this.baseUrl}/gettrades`,{params});
   }
 
-  buystock(accountId:number,ticker:string,amount:number): Observable<Object> {
-    console.log('111111111')
-    const params = new HttpParams()
-    .set('accountId', accountId.toString())
-    .set('ticker', ticker)
-    .set('amount', amount);
-    return this.http.post(`${this.baseUrl}/buystock`, {params});
+  buystock(accountId:number,ticker:string,amount:number): Observable<boolean> {
+    const data = {
+      accountId: accountId,
+      ticker: ticker,
+      amount: amount
+    };
+    // this.http.post(`${this.baseUrl}/buystock`, data).subscribe(response => {
+    //   if (response === true) {
+    //     console.log('购买股票成功');
+    //   } else {
+    //     console.log('购买股票失败');
+    //   }
+    // }, error => {
+    //   console.error('请求出错', error);
+    // });
+
+    return this.http.post<boolean>(`${this.baseUrl}/buystock`, data);
   }
-
-
-
-
 
 }

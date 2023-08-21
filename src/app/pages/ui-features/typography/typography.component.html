@@ -65,18 +65,26 @@
             {{stock.vol}}
           </div>
         </div>
-        <div class="row">
-          <form class="form-inline" (ngSubmit)="onSubmit()">
-            <div class="col-sm-6">
-              <div class="form-group">
-                <input type="text" nbInput fullWidth id="buyAmount" placeholder="$" name="buyAmount" required [(ngModel)]="buyAmount">
-              </div>  
+        <div class="header">
+          <!-- <div class="row"> -->
+            <form class="form-inline" (ngSubmit)="onSubmit()">
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <input type="text" nbInput fullWidth id="buyAmount" placeholder="$" name="buyAmount" required [(ngModel)]="buyAmount">
+                </div>  
+              </div>
+              <div class="col-sm-2">
+                <div class="form-group">
+                  <button nbButton type="submit"  status="success" >Buy</button>
+                </div>  
+              </div>
+              <div class="detail">
+
+              <div *ngIf="buySuccessMessage" class="success-message">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Buy successfully!
+              </div>
             </div>
-            <div class="col-sm-2">
-              <div class="form-group">
-                <button nbButton type="submit"  status="success" >Buy</button>
-              </div>  
-            </div>
+          <!-- </div> -->
           </form>
         </div>
       </nb-card-body>

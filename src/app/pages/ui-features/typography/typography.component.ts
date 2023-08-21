@@ -15,6 +15,7 @@ export class TypographyComponent  implements OnInit {
   stock!: Stock;
   buyAmount!: number
   id!:number
+  buySuccessMessage: boolean = false;
 
   constructor(private route: ActivatedRoute,private router: Router,
     private stockService:StockService,
@@ -33,24 +34,27 @@ export class TypographyComponent  implements OnInit {
       }, error => console.log(error));
   }
 
-  transIn() {
+  buyStocks() {
       
     // this.amount=this.route.snapshot.params['amount'];
     
 
     this.id=4
+
     this.stockholdService
     .buystock(this.id,this.ticker,this.buyAmount).subscribe(data => {
-      console.log(222222222)
-      this.gotoRefrash();
+        if (data === true) {
+          this.buySuccessMessage = true; 
+        } else {
+          this.buySuccessMessage = false;
+        }
+
     }, 
     error => console.log(error));
   }
 
   onSubmit() {
-    console.log(333333333)
-    // this.submitted = true;
-    this.transIn();    
+    this.buyStocks();    
   }
 
   gotoRefrash(){
