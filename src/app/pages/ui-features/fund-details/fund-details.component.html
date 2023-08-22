@@ -1,7 +1,24 @@
   <div class="col-md-12 ">
-    <nb-card size="medium" class="headings-card">
+    <nb-card class="headings-card">
       <nb-card-header>
-        <h1>{{fund.code}}</h1>
+        <h1>&nbsp;&nbsp;{{fund.code}}</h1>
+        <form class="form-inline" (ngSubmit)="onSubmit()">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <input type="text" nbInput fullWidth id="buyAmount" placeholder="$" name="buyAmount" required [(ngModel)]="buyAmount">
+            </div>  
+          </div>
+          <div class="col-sm-2">
+            <div class="form-group">
+              <button nbButton type="submit"  status="success" >Buy</button>
+            </div>  
+          </div>
+          
+
+          <div *ngIf="buySuccessMessage" class="success-message">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Buy successfully!
+          </div>
+      </form>
       </nb-card-header>
       <nb-card-body>
 
@@ -28,7 +45,7 @@
         </div>
         <div class="header">
           <div>
-            <h4>Acc Net</h4>
+            <h4>Accumulated Net</h4>
           </div>
 
           <div class="detail">
@@ -37,7 +54,7 @@
         </div>
         <div class="header">
           <div>
-            <h4>Rate</h4>
+            <h4>Daily Growth Rate</h4>
           </div>
 
           <div class="detail">
@@ -62,37 +79,19 @@
             {{fund.redemption}}
           </div>
         </div>
-        <!-- <div class="header">
-          <div>
-            <h4>Vol</h4>
-          </div>
-
-          <div class="detail">
-            {{stock.vol}}
-          </div>
-        </div> -->
-        <div class="header">
-          <!-- <div class="row"> -->
-            <form class="form-inline" >
-              <div class="col-sm-6">
-                <div class="form-group">
-                  <input type="text" nbInput fullWidth id="buyAmount" placeholder="$" name="buyAmount" >
-                </div>  
-              </div>
-              <div class="col-sm-2">
-                <div class="form-group">
-                  <button nbButton type="submit"  status="success" >Buy</button>
-                </div>  
-              </div>
-              <div class="detail">
-
-              <!-- <div *ngIf="buySuccessMessage" class="success-message">
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Buy successfully!
-              </div> -->
-            </div>
-          <!-- </div> -->
-          </form>
-        </div>
+       
       </nb-card-body>
+      <nb-card-footer>
+        <div class="header">
+          <div>
+            <h4>History Trend</h4>
+          </div>
+        </div>
+        <div>
+          <div>
+            <chart type="line" [data]="data" [options]="options"  class="chart-container"></chart>
+         </div>
+        </div>
+      </nb-card-footer>
     </nb-card>
   </div>

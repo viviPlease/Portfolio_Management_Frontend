@@ -38,4 +38,11 @@ export class StockService {
     .set('endTime', endTime);
     return this.http.get(`${this.baseUrl}/stock/getstockhis`,{params});
   }
+
+  searchstock(name:string,ticker:string): Observable<any> {
+    const params = new HttpParams()
+    .set('name', name)
+    .set('ticker', ticker);
+    return this.http.get(`${this.baseUrl}/stock/searchstock`,{params});
+  }
 }

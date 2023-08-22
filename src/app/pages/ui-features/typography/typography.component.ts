@@ -42,7 +42,6 @@ export class TypographyComponent  implements OnInit {
 
         
       
-        console.log(this.stockhiss)
         this.stockhiss = this.stockService.getstockhis(this.ticker,"","");
     
     this.stockhiss.pipe(
@@ -209,18 +208,4 @@ export class TypographyComponent  implements OnInit {
     this.buyStocks();    
   }
 
-  // gotoRefrash(){
-  //   this.router.navigate(['/table/tree-grid']);
-  // }
-
-
-
-  // ngOnDestroy(): void {
-  //   this.themeSubscription.unsubscribe();
-  // }
-
-  // private random() {
-  //   return Math.round(Math.random() * 100);
-  // }
-  
 }

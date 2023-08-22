@@ -40,5 +40,14 @@ export class FundholdService {
     return this.http.get(`${this.baseUrl}/gettrades`,{params});
   }
 
+  buyfund(accountId:number,code:string,amount:number): Observable<boolean> {
+    const data = {
+      accountId: accountId,
+      code: code,
+      amount: amount
+    };
+    return this.http.post<boolean>(`${this.baseUrl}/buyfund`, data);
+  }
+
 
 }

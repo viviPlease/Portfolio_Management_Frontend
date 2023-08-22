@@ -86,9 +86,6 @@
         </div>
       </nb-card-body>
 
-      <!-- <nb-card-header>
-        Stocks
-      </nb-card-header> -->
       <nb-card-footer>
         <div class="header">
           <div>
@@ -99,41 +96,7 @@
           <div>
             <chart type="line" [data]="data" [options]="options"  class="chart-container"></chart>
          </div>
-        <!-- </div>
-
-        <div class="table-responsive"> -->
-          <!-- <table class="table table-bordered table-striped">
-            <thead>
-              <tr>
-                <th> time
-                </th>
-                <th> currentPrice
-                </th>
-                <th> openPrice
-                </th>
-                <th> LowPrice
-                </th>
-                <th> ClosePrice
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-                  <tr *ngFor="let stock of stocks | async">
-                <td>{{stock.ticker}}</td>
-                <td>{{stock.currentPrice}}</td>
-                <td>{{stock.openPrice}}</td>
-                <td>{{stock.time}}</td>
-                <td>
-                  
-                    <button (click)="stockDetails(stock.ticker)" class="btn btn-info" style="margin-left: 10px">Details & Buy</button>
-                    <button (click)="buyStock(stock.ticker)" class="btn btn-success" >Buy</button>
-                    
-                </td>
-              </tr>
-            </tbody>
-          </table> -->
         </div>
-        
       </nb-card-footer>
     </nb-card>
     

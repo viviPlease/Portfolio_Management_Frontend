@@ -10,6 +10,8 @@ import { StockService } from "../../../service/stock.service";
 })
 export class GridComponent implements OnInit {
   stocks!: Observable<Stock[]>;
+  nameTicker!:string
+  stocks1!: Observable<Stock[]>;
 
   constructor(private stockService: StockService,
     private router: Router) {}
@@ -22,9 +24,10 @@ export class GridComponent implements OnInit {
     this.stocks = this.stockService.getStocksList();
   }
 
-  // buyStock(ticker: string) {
-  //   this.router.navigate(['pages/ui-features/typography', ticker]);
-  // }
+  stockSearch(searchValue: string) {
+    this.stocks = this.stockService.searchstock(this.nameTicker,"");
+    this.stocks1 = this.stockService.searchstock("",this.nameTicker);
+  }
 
   stockDetails(ticker: string){
     this.router.navigate(['pages/ui-features/typography', ticker]);

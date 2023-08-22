@@ -9,9 +9,9 @@ import {
   NbSelectModule,
   NbListModule,
   NbIconModule,
+  NbInputModule,
 } from '@nebular/theme';
 import { NgxEchartsModule } from 'ngx-echarts';
-
 import { ThemeModule } from '../../@theme/theme.module';
 import { DashboardComponent } from './dashboard.component';
 import { StatusCardComponent } from './status-card/status-card.component';
@@ -46,6 +46,7 @@ import { FormsModule } from '@angular/forms';
     NbIconModule,
     NbButtonModule,
     NgxEchartsModule,
+    NbInputModule
   ],
   declarations: [
     DashboardComponent,

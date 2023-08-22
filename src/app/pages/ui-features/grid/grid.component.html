@@ -6,7 +6,7 @@
       </nb-card-header>
       <nb-card-body>
         <label class="search-label" for="search">Search:</label> 
-        <input nbInput  id="search" class="search-input">
+        <input nbInput  id="search" class="search-input" (keyup.enter)="stockSearch($event.target.value)" required [(ngModel)]="nameTicker">
         <div class="table-responsive">
           <table class="table table-bordered table-striped">
             <thead>
@@ -26,6 +26,18 @@
             </thead>
             <tbody>
                   <tr *ngFor="let stock of stocks | async">
+                <td>{{stock.name}}</td>
+                <td>{{stock.currentPrice}}</td>
+                <td>{{stock.openPrice}}</td>
+                <td>{{stock.time | date:'yyyy-MM-dd HH:mm'}}</td>
+                <td>
+                  
+                    <button (click)="stockDetails(stock.ticker)" class="btn btn-info" style="margin-left: 10px">Details & Buy</button>
+                    <!-- <button (click)="buyStock(stock.ticker)" class="btn btn-success" >Buy</button> -->
+                    
+                </td>
+              </tr>
+              <tr *ngFor="let stock of stocks1 | async">
                 <td>{{stock.name}}</td>
                 <td>{{stock.currentPrice}}</td>
                 <td>{{stock.openPrice}}</td>
