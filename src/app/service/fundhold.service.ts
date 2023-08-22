@@ -35,8 +35,8 @@ export class FundholdService {
   gettrades(accountId:number,startTime:string,endTime:string): Observable<any> {
     const params = new HttpParams()
     .set('accountId', accountId.toString())
-    .set('startTIme', startTime)
-    .set('endTime', endTime);
+    // .set('startTIme', startTime)
+    // .set('endTime', endTime);
     return this.http.get(`${this.baseUrl}/gettrades`,{params});
   }
 

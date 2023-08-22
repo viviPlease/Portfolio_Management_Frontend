@@ -5,6 +5,7 @@
         My Funds Trade History
       </nb-card-header>
       <nb-card-body>
+        <canvas id="tradeAmountBarChart" style="height: 60%; width: 60%;">123</canvas>
         <label class="search-label" for="search">Search:</label> 
         <input nbInput  id="search" class="search-input">
         <div class="table-responsive">
@@ -25,15 +26,15 @@
             </thead>
             <tbody>
                   <tr *ngFor="let fundtrade of fundtrades | async">
-                <td>{{fundtrade.time}}</td>
+                <td>{{fundtrade.time | date:'yyyy-MM-dd HH:mm:ss'}}</td>
                 <td>{{fundtrade.code}}</td>
                 <td>{{fundtrade.type}}</td>
-                <td>{{fundtrade.subscriptionPrice}}</td>
+                <td>{{fundtrade.price}}</td>
                 <td>{{fundtrade.amount}}</td>
-                <td>
-                  <!-- <button (click)="deleteStock(stock.ticker)" class="btn btn-danger">Delete</button>
-                    <button (click)="stockDetails(stock.ticker)" class="btn btn-info" style="margin-left: 10px">Details</button> -->
-                </td>
+                <!-- <td>
+                  <button (click)="deleteStock(stock.ticker)" class="btn btn-danger">Delete</button>
+                    <button (click)="stockDetails(stock.ticker)" class="btn btn-info" style="margin-left: 10px">Details</button>
+                </td> -->
               </tr>
             </tbody>
           </table>
