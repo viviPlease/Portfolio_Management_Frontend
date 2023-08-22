@@ -10,8 +10,11 @@ import { IconsComponent } from './icons/icons.component';
 import { TypographyComponent } from './typography/typography.component';
 import { SearchComponent } from './search-fields/search-fields.component';
 import { FormsModule } from '@angular/forms';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { ChartModule } from 'angular2-chartjs';
 
 const components = [
+  
   UiFeaturesComponent,
   GridComponent,
   FundDetailsComponent,
@@ -22,6 +25,7 @@ const components = [
 
 @NgModule({
   imports: [
+    NgxChartsModule,
     FormsModule,
     NbCardModule,
     NbButtonModule,
@@ -32,6 +36,7 @@ const components = [
     ThemeModule,
     UiFeaturesRoutingModule,
     NbInputModule,
+    ChartModule
   ],
   declarations: [
     ...components,

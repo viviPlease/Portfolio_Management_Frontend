@@ -11,13 +11,13 @@
           <table class="table table-bordered table-striped">
             <thead>
               <tr>
-                <th> name
+                <th> Name
                 </th>
-                <th> currentPrice
+                <th> CurrentPrice
                 </th>
-                <th> openPrice
+                <th> OpenPrice
                 </th>
-                <th> time
+                <th> Time
                 </th>
                 <th> Actions
                 </th>
@@ -25,10 +25,10 @@
             </thead>
             <tbody>
                   <tr *ngFor="let stock of stocks | async">
-                <td>{{stock.ticker}}</td>
+                <td>{{stock.name}}</td>
                 <td>{{stock.currentPrice}}</td>
                 <td>{{stock.openPrice}}</td>
-                <td>{{stock.time}}</td>
+                <td>{{stock.time | date:'yyyy-MM-dd HH:mm'}}</td>
                 <td>
                   
                     <button (click)="stockDetails(stock.ticker)" class="btn btn-info" style="margin-left: 10px">Details & Buy</button>

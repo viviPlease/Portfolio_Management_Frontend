@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
@@ -29,5 +29,13 @@ export class StockService {
 
   getStocksList(): Observable<any> {
     return this.http.get(`${this.baseUrl}/stock/getallstocks`);
+  }
+
+  getstockhis(ticker: string,startTime:string,endTime:string): Observable<any> {
+    const params = new HttpParams()
+    .set('ticker', ticker)
+    .set('startTime', startTime)
+    .set('endTime', endTime);
+    return this.http.get(`${this.baseUrl}/stock/getstockhis`,{params});
   }
 }
