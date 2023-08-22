@@ -14,6 +14,7 @@ import { Router } from '@angular/router';
 export class NgxLoginComponent extends NbLoginComponent{
   name:string
   password:string
+  loading:boolean = false
   loginSuccess:boolean = false
 
   constructor(service: NbAuthService, cd: ChangeDetectorRef, router: Router, private accountService:AccountService){
@@ -21,6 +22,7 @@ export class NgxLoginComponent extends NbLoginComponent{
   }
 
   login1() {
+    this.loading = true;
     this.accountService
     .login(this.name,this.password).subscribe(data => {
         if (data) {
@@ -36,6 +38,7 @@ export class NgxLoginComponent extends NbLoginComponent{
     }, 
     error => {
       alert('Incorrent account name or password');
+      this.loading = false;
       this.loginSuccess = false;
       console.log(error)
     });
