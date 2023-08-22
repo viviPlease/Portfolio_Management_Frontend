@@ -46,16 +46,6 @@ export class StockholdService {
       ticker: ticker,
       amount: amount
     };
-    // this.http.post(`${this.baseUrl}/buystock`, data).subscribe(response => {
-    //   if (response === true) {
-    //     console.log('购买股票成功');
-    //   } else {
-    //     console.log('购买股票失败');
-    //   }
-    // }, error => {
-    //   console.error('请求出错', error);
-    // });
-
     return this.http.post<boolean>(`${this.baseUrl}/buystock`, data);
   }
 
