@@ -8,8 +8,10 @@ import { NbAuthModule } from '@nebular/auth';
 import { 
   NbAlertModule,
   NbButtonModule,
+  NbCardModule,
   NbCheckboxModule,
-  NbInputModule
+  NbInputModule,
+  NbSpinnerModule
 } from '@nebular/theme';
 
 import { NgxLoginComponent } from './login/login.component';
@@ -25,7 +27,8 @@ import { NgxRegisterComponent } from './register/register.component';
     NbButtonModule,
     NbCheckboxModule,
     NgxAuthRoutingModule,
-
+    NbCardModule,
+    NbSpinnerModule,
     NbAuthModule,
   ],
   declarations: [

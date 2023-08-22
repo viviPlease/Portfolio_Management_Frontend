@@ -5,6 +5,7 @@ import { UserData } from '../../../@core/data/users';
 import { LayoutService } from '../../../@core/utils';
 import { map, takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'ngx-header',
@@ -45,7 +46,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
               private themeService: NbThemeService,
               private userService: UserData,
               private layoutService: LayoutService,
-              private breakpointService: NbMediaBreakpointsService) {
+              private breakpointService: NbMediaBreakpointsService,
+              private router: Router) {
   }
 
   ngOnInit() {
@@ -69,6 +71,19 @@ export class HeaderComponent implements OnInit, OnDestroy {
         takeUntil(this.destroy$),
       )
       .subscribe(themeName => this.currentTheme = themeName);
+    
+    this.menuService.onItemClick()
+    .subscribe((event) => {
+      if(event.item.title==="Log out"){
+        this.logOut();
+      }
+    });
+  }
+  
+  logOut(){
+    localStorage.removeItem("account");
+    alert("Log out successfully.");
+    this.router.navigate(['/auth/login']);
   }
 
   ngOnDestroy() {
@@ -78,6 +93,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   changeTheme(themeName: string) {
     this.themeService.changeTheme(themeName);
+  }
+
+  onMenuItemClick(event){
+    alert("Click")
   }
 
   toggleSidebar(): boolean {

@@ -1,5 +1,5 @@
 import { ExtraOptions, RouterModule, Routes } from '@angular/router';
-import { NgModule } from '@angular/core';
+import { NgModule } from '@angular/core'
 import {
   NbAuthComponent,
   NbLoginComponent,
@@ -10,6 +10,7 @@ import {
 } from '@nebular/auth';
 import { TypographyComponent } from './pages/ui-features/typography/typography.component';
 import { UiFeaturesComponent } from './pages/ui-features/ui-features.component';
+import { LoginGuard } from './app-routing.guard';
 
 
 
@@ -18,6 +19,7 @@ export const routes: Routes = [
     path: 'pages',
     loadChildren: () => import('./pages/pages.module')
       .then(m => m.PagesModule),
+    canActivate: [LoginGuard]
   },
   {
     path: 'auth',
