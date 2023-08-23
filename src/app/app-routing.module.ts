@@ -10,7 +10,7 @@ import {
 } from '@nebular/auth';
 import { TypographyComponent } from './pages/ui-features/typography/typography.component';
 import { UiFeaturesComponent } from './pages/ui-features/ui-features.component';
-import { LoginGuard } from './app-routing.guard';
+import { LoginGuard, PageGuard } from './app-routing.guard';
 
 
 
@@ -24,6 +24,7 @@ export const routes: Routes = [
   {
     path: 'auth',
     loadChildren: () => import('./auth/auth.module').then(m => m.NgxAuthModule),
+    canActivate: []
   },
   // {
   //   path:'ui-features/typography/:ticker', component: TypographyComponent,
