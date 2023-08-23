@@ -2,11 +2,23 @@
   <div class="col-md-12">
     <nb-card>
       <nb-card-header>
-        My Funds
+        <h4>
+          Funds
+        </h4> 
       </nb-card-header>
-      <nb-card-body>
-        <label class="search-label" for="search">Search:</label> 
-        <input nbInput  id="search" class="search-input">
+        <nb-card-body>
+          <div class="header">
+            <div>
+              <h6>Funds Trend</h6>
+            </div>
+          </div>
+          <div class="chart-container">
+            <div class="chart-container">
+              <chart type="line" [data]="data" [options]="options"  class="chart-container"></chart>
+           </div>
+          </div>
+          </nb-card-body>
+          <nb-card-footer>
         <div class="table-responsive">
           <table class="table table-bordered table-striped">
             <thead>
@@ -28,13 +40,13 @@
                 <td>{{stockhold.subscriptionPrice}}</td>
                 <td>
                   <!-- <button (click)="deleteStock(stock.ticker)" class="btn btn-danger">Delete</button> -->
-                    <button (click)="stockDetails(stock.ticker)" class="btn btn-info" style="margin-left: 10px">Price Trend & Sell</button>
+                    <button (click)="fundDetails(stockhold.code)" class="btn btn-info" style="margin-left: 10px">Price Trend & Sell</button>
                 </td>
               </tr>
             </tbody>
           </table>
         </div>
-      </nb-card-body>
+          </nb-card-footer>
     </nb-card>
   </div>
 </div>

@@ -1,32 +1,84 @@
-<div class="row">
-  <div class="col-md-12 col-lg-4 col-xxxl-4">
-    <nb-card>
-      <nb-card-header>Common Datepicker</nb-card-header>
-      <nb-card-body>
-        <input nbInput
-               placeholder="Form Picker"
-               [nbDatepicker]="formpicker">
-        <nb-datepicker #formpicker></nb-datepicker>
-      </nb-card-body>
-    </nb-card>
-  </div>
+<div class="col-md-12 ">
+  <nb-card class="headings-card">
+    <nb-card-header>
+      <h1>&nbsp;&nbsp;{{fund.code}}</h1>
+      <form class="form-inline" (ngSubmit)="onSubmit()">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <input type="text" nbInput fullWidth id="sellAmount" placeholder="$" name="sellAmount" required [(ngModel)]="sellAmount">
+          </div>  
+        </div>
+        <div class="col-sm-2">
+          <div class="form-group">
+            <button nbButton type="submit"  status="success" >Sell</button>
+          </div>  
+        </div>
+        
 
-  <div class="col-md-12 col-lg-4 col-xxxl-4">
-    <nb-card>
-      <nb-card-header>Datepicker With Range</nb-card-header>
-      <nb-card-body>
-        <input nbInput placeholder="Range Picker" [nbDatepicker]="rangepicker">
-        <nb-rangepicker #rangepicker></nb-rangepicker>
-      </nb-card-body>
-    </nb-card>
-  </div>
-  <div class="col-md-12 col-lg-4 col-xxxl-4">
-    <nb-card>
-      <nb-card-header>Datepicker With Disabled Min Max Values</nb-card-header>
-      <nb-card-body>
-        <input nbInput placeholder="Min Max Picker" [nbDatepicker]="picker">
-        <nb-datepicker #picker [min]="min" [max]="max"></nb-datepicker>
-      </nb-card-body>
-    </nb-card>
-  </div>
+        <div *ngIf="sellSuccessMessage" class="success-message">
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sell successfully!
+        </div>
+    </form>
+    </nb-card-header>
+    <nb-card-body>
+      <div class="header">
+        <div>
+          <h4>Unit Net</h4>
+        </div>
+
+        <div class="detail">
+          {{fund.unitNet}}
+        </div>
+      </div>
+      <div class="header">
+        <div>
+          <h4>Accumulated Net</h4>
+        </div>
+
+        <div class="detail">
+          {{fund.accNet}}
+        </div>
+      </div>
+      <div class="header">
+        <div>
+          <h4>Daily Growth Rate</h4>
+        </div>
+
+        <div class="detail">
+          {{fund.rate}}
+        </div>
+      </div>
+      <div class="header">
+        <div>
+          <h4>Subscription</h4>
+        </div>
+
+        <div class="detail">
+          {{fund.subscription}}
+        </div>
+      </div>
+      <div class="header">
+        <div>
+          <h4>Redemption</h4>
+        </div>
+
+        <div class="detail">
+          {{fund.redemption}}
+        </div>
+      </div>
+     
+    </nb-card-body>
+    <nb-card-footer>
+      <div class="header">
+        <div>
+          <h4>History Trend</h4>
+        </div>
+      </div>
+      <div>
+        <div>
+          <chart type="line" [data]="data" [options]="options"  class="chart-container"></chart>
+       </div>
+      </div>
+    </nb-card-footer>
+  </nb-card>
 </div>

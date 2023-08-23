@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 })
 export class StockService {
 
-  private baseUrl = 'http://group9.testweb01.eu.org:8080';
+  private baseUrl = 'http://localhost:8080';
 
   constructor(private http: HttpClient) { }
 

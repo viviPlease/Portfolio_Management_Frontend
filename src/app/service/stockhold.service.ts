@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class StockholdService {
 
-  private baseUrl = 'http://group9.testweb01.eu.org:8080/stockhold';
+  private baseUrl = 'http://localhost:8080/stockhold';
 
   constructor(private http: HttpClient) { }
 
@@ -48,5 +48,24 @@ export class StockholdService {
     };
     return this.http.post<boolean>(`${this.baseUrl}/buystock`, data);
   }
+
+
+  sellstock(accountId:number,ticker:string,amount:number): Observable<boolean> {
+    const data = {
+      accountId: accountId,
+      ticker: ticker,
+      amount: amount
+    };
+    return this.http.post<boolean>(`${this.baseUrl}/sellstock`, data);
+  }
+
+  getallstockholdtrend(accountId:number): Observable<any> {
+    const params = new HttpParams()
+    .set('accountId', accountId.toString());
+    return this.http.get(`${this.baseUrl}/getallstockholdtrend`,{params});
+  }
+
+
+  
 
 }

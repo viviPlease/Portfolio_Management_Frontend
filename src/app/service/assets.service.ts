@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class AssetsService {
 
-  private baseUrl = 'http://group9.testweb01.eu.org:8080/assets';
+  private baseUrl = 'http://localhost:8080/assets';
 
   constructor(private http: HttpClient) { }
 

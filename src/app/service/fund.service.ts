@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class FundService {
-  private baseUrl = 'http://group9.testweb01.eu.org:8080';
+  private baseUrl = 'http://localhost:8080';
 
   constructor(private http: HttpClient) { }
 
@@ -36,5 +36,12 @@ export class FundService {
     .set('startTime', startTime)
     .set('endTime', endTime);
     return this.http.get(`${this.baseUrl}/fund/getfundhis`,{params});
+  }
+
+  searchfund(name:string,code:string): Observable<any> {
+    const params = new HttpParams()
+    .set('name', name)
+    .set('code', code);
+    return this.http.get(`${this.baseUrl}/fund/searchfund`,{params});
   }
 }
