@@ -24,7 +24,7 @@ export const routes: Routes = [
   {
     path: 'auth',
     loadChildren: () => import('./auth/auth.module').then(m => m.NgxAuthModule),
-    canActivate: []
+    canActivate: [PageGuard]
   },
   // {
   //   path:'ui-features/typography/:ticker', component: TypographyComponent,
