@@ -19,6 +19,14 @@ export class AccountService {
     return this.http.post(`${this.baseUrl}/login`,data);
   }
 
+  register(name: string,password:string): Observable<any> {
+    const data = {
+      name: name,
+      password: password,
+    };
+    return this.http.post(`${this.baseUrl}/register`,data);
+  }
+
   // // createEmployee(employee: Object): Observable<Object> {
   // //   return this.http.post(`${this.baseUrl}`, employee);
   // // }

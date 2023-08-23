@@ -1,6 +1,6 @@
 <h1 id="title" class="title">Register</h1>
 
-<nb-alert *ngIf="showMessages.error && errors?.length && !submitted" outline="danger" role="alert">
+<!-- <nb-alert *ngIf="showMessages.error && errors?.length && !submitted" outline="danger" role="alert">
   <p class="alert-title"><b>Oh snap!</b></p>
   <ul class="alert-message-list">
     <li *ngFor="let error of errors" class="alert-message">{{ error }}</li>
@@ -12,18 +12,18 @@
   <ul class="alert-message-list">
     <li *ngFor="let message of messages" class="alert-message">{{ message }}</li>
   </ul>
-</nb-alert>
+</nb-alert> -->
 
 <form (ngSubmit)="register()" #form="ngForm" aria-labelledby="title">
 
   <div class="form-control-group">
     <label class="label" for="input-name">Name:</label>
     <input nbInput
-           [(ngModel)]="user.fullName"
+           [(ngModel)]="name"
            #fullName="ngModel"
            id="input-name"
            name="fullName"
-           placeholder="Full name"
+           placeholder="Account name"
            autofocus
            fullWidth
            fieldSize="large"
@@ -48,7 +48,7 @@
   <div class="form-control-group">
     <label class="label" for="input-password">Password:</label>
     <input nbInput
-           [(ngModel)]="user.password"
+           [(ngModel)]="pwd"
            #password="ngModel"
            type="password"
            id="input-password"
@@ -77,7 +77,7 @@
   <div class="form-control-group">
     <label class="label" for="input-re-password">Repeat password:</label>
     <input nbInput
-           [(ngModel)]="user.confirmPassword"
+           [(ngModel)]="confirmPassword"
            #rePass="ngModel"
            type="password"
            id="input-re-password"
@@ -105,6 +105,9 @@
   </div>
 
   <button nbButton
+          [nbSpinner]="loading" 
+          nbSpinnerSize="giant"
+          nbSpinnerStatus="control"
           fullWidth
           status="primary"
           size="large"
