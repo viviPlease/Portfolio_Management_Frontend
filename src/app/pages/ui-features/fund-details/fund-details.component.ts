@@ -41,7 +41,6 @@ export class FundDetailsComponent  implements OnInit {
 
         
       
-        // console.log(this.stockhiss)
         this.fundhiss = this.employeeService.getfundhis(this.code,"2023-08-07","2023-08-23");
     
     this.fundhiss.pipe(
@@ -61,9 +60,7 @@ export class FundDetailsComponent  implements OnInit {
         return { unitNet, labels,rate ,accNet};
       })
     ).subscribe(({ unitNet, labels,rate ,accNet}) => {
-      console.log('Times:', labels);
-      console.log('Current Prices:', unitNet);
-      // Now you can use 'this.times' anywhere in the component
+
 
       const datasets = [];
 

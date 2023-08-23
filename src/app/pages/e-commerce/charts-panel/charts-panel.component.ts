@@ -24,14 +24,12 @@ export class ECommerceChartsPanelComponent  implements OnInit{
   
     ngOnInit() {
       this.assets = new Assets();
-      // console.log(this.amount)
-      // this.id = this.route.snapshot.params['id'];
+
       this.id=4;
       this.amount=null;
       this.transOutNum=null;
       this.assetsService.getAssetsById(this.id)
         .subscribe(data => {
-          // console.log(data)
           this.assets = data;
           let pieChartCtx = document.getElementById("assetsPieChart")
         let chartData = {
@@ -67,8 +65,6 @@ export class ECommerceChartsPanelComponent  implements OnInit{
       this.id=4
       this.assetsService
       .transforIn(this.id,this.a).subscribe(data => {
-        // console.log(data)
-
         this.gotoRefrash();
       }, 
       error => console.log(error));
@@ -80,7 +76,6 @@ export class ECommerceChartsPanelComponent  implements OnInit{
     }
 
     transferOut(){
-      console.log(this.transOutNum)
       this.a=parseFloat(this.transOutNum)
       this.id=4
       this.assetsService

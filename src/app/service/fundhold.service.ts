@@ -7,26 +7,11 @@ import { Observable } from 'rxjs';
 })
 export class FundholdService {
 
-  private baseUrl = 'http://group9.testweb01.eu.org:8080/fundhold';
+  private baseUrl = 'http://localhost:8080/fundhold';
 
   constructor(private http: HttpClient) { }
 
-  // getStock(ticker: string): Observable<any> {
-  //   console.log(ticker)
-  //   return this.http.get(`${this.baseUrl}/stock/getstockbyticker/${ticker}`);
-  // }
 
-  // // createEmployee(employee: Object): Observable<Object> {
-  // //   return this.http.post(`${this.baseUrl}`, employee);
-  // // }
-
-  // updateStock(name: string, currentPrice: any): Observable<Object> {
-  //   return this.http.put(`${this.baseUrl}/${name}`, currentPrice);
-  // }
-
-  // deleteStock(name: string): Observable<any> {
-  //   return this.http.delete(`${this.baseUrl}/stock/${name}`, { responseType: 'text' });
-  // }
 
   getFundholdList(accountId:number): Observable<any> {
     return this.http.get(`${this.baseUrl}/getallfundhold/${accountId}`);
@@ -47,6 +32,22 @@ export class FundholdService {
       amount: amount
     };
     return this.http.post<boolean>(`${this.baseUrl}/buyfund`, data);
+  }
+
+  sellfund(accountId:number,code:string,amount:number): Observable<boolean> {
+    const data = {
+      accountId: accountId,
+      code: code,
+      amount: amount
+    };
+    return this.http.post<boolean>(`${this.baseUrl}/sellfund`, data);
+  }
+
+  
+  getallfundholdtrend(accountId:number): Observable<any> {
+    const params = new HttpParams()
+    .set('accountId', accountId.toString());
+    return this.http.get(`${this.baseUrl}/getallfundholdtrend`,{params});
   }
 
 
