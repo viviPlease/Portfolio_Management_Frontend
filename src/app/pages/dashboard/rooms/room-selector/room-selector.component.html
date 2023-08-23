@@ -6,7 +6,7 @@
       </nb-card-header>
       <nb-card-body>
         <label class="search-label" for="search">Search:</label> 
-        <input nbInput  id="search" class="search-input">
+        <input nbInput  id="search" class="search-input" (keyup.enter)="fundSearch($event.target.value)" required [(ngModel)]="fundcode">
         <div class="table-responsive">
           <table class="table table-bordered table-striped">
             <thead>

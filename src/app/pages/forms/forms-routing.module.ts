@@ -27,11 +27,7 @@ const routes: Routes = [
         component: MyFundsTradeComponent,
       },
       {
-        path: 'layouts',
-        component: FormLayoutsComponent,
-      },
-      {
-        path: 'layouts',
+        path: 'layouts/:ticker',
         component: FormLayoutsComponent,
       },
       {
@@ -39,7 +35,7 @@ const routes: Routes = [
         component: ButtonsComponent,
       },
       {
-        path: 'datepicker',
+        path: 'datepicker/:code',
         component: DatepickerComponent,
       },
     ],

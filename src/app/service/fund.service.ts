@@ -6,7 +6,11 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class FundService {
+<<<<<<< HEAD
   private baseUrl = 'https://portfolio-management-api-project-icg-shanghai-b19-payments.apps.oscluster1.fnkn.p1.openshiftapps.com';
+=======
+  private baseUrl = 'http://localhost:8080';
+>>>>>>> ccb400d03e6e4742d77db0a89b901f07d648488a
 
   constructor(private http: HttpClient) { }
 
@@ -36,5 +40,12 @@ export class FundService {
     .set('startTime', startTime)
     .set('endTime', endTime);
     return this.http.get(`${this.baseUrl}/fund/getfundhis`,{params});
+  }
+
+  searchfund(name:string,code:string): Observable<any> {
+    const params = new HttpParams()
+    .set('name', name)
+    .set('code', code);
+    return this.http.get(`${this.baseUrl}/fund/searchfund`,{params});
   }
 }

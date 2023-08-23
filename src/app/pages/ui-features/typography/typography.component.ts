@@ -181,7 +181,6 @@ export class TypographyComponent  implements OnInit {
 
     this.stockService.getStock(this.ticker)
       .subscribe(data => {
-        // console.log(data)
         this.stock = data;
       }, error => console.log(error));
 

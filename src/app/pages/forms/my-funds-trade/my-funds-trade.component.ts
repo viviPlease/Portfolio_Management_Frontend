@@ -29,8 +29,7 @@ export class MyFundsTradeComponent implements OnInit {
     this.amountByDay = [];
     this.reloadData();
     this.fundtrades.subscribe(data=>{
-      console.log(data[0])
-      console.log(data[0].time.toString().substring(0,10))
+
       data.forEach(item=>{
         let date = item.time.toString().substring(0,10)
         if(this.tradeAmountByDay.hasOwnProperty(date)){
@@ -91,19 +90,5 @@ export class MyFundsTradeComponent implements OnInit {
     this.fundtrades = this.fundholdService.gettrades(this.accountId,null,null);
   }
 
-  // deleteStock(ticker: string) {
-  //   this.stockholdService.deleteStock(ticker)
-  //     .subscribe(
-  //       data => {
-  //         console.log(data);
-  //         this.reloadData();
-  //       },
-  //       error => console.log(error));
-  // }
-
-  // stockDetails(ticker: string){
-  //   console.log(this.stockhold)
-  //   this.router.navigate(['pages/ui-features/typography', ticker]);
-  // }
 }
 

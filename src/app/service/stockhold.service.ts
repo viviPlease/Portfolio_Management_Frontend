@@ -7,7 +7,11 @@ import { Observable } from 'rxjs';
 })
 export class StockholdService {
 
+<<<<<<< HEAD
   private baseUrl = 'https://portfolio-management-api-project-icg-shanghai-b19-payments.apps.oscluster1.fnkn.p1.openshiftapps.com/stockhold';
+=======
+  private baseUrl = 'http://localhost:8080/stockhold';
+>>>>>>> ccb400d03e6e4742d77db0a89b901f07d648488a
 
   constructor(private http: HttpClient) { }
 
@@ -48,5 +52,24 @@ export class StockholdService {
     };
     return this.http.post<boolean>(`${this.baseUrl}/buystock`, data);
   }
+
+
+  sellstock(accountId:number,ticker:string,amount:number): Observable<boolean> {
+    const data = {
+      accountId: accountId,
+      ticker: ticker,
+      amount: amount
+    };
+    return this.http.post<boolean>(`${this.baseUrl}/sellstock`, data);
+  }
+
+  getallstockholdtrend(accountId:number): Observable<any> {
+    const params = new HttpParams()
+    .set('accountId', accountId.toString());
+    return this.http.get(`${this.baseUrl}/getallstockholdtrend`,{params});
+  }
+
+
+  
 
 }

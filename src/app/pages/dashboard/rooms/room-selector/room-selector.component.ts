@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 })
 export class RoomSelectorComponent implements OnInit {
   funds!: Observable<Fund[]>;
+  fundcode!:string
 
   constructor(private fundService: FundService,
     private router: Router) {}
@@ -37,5 +38,9 @@ export class RoomSelectorComponent implements OnInit {
   fundDetails(code: string){
     console.log(code)
     this.router.navigate(['pages/ui-features/funddetails', code]);
+  }
+
+  fundSearch(searchValue: string) {
+    this.funds = this.fundService.searchfund("",this.fundcode);
   }
 }

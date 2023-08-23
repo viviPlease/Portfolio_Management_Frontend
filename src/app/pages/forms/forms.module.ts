@@ -6,6 +6,7 @@ import {
   NbCheckboxModule,
   NbDatepickerModule, NbIconModule,
   NbInputModule,
+  NbPopoverModule,
   NbRadioModule,
   NbSelectModule,
   NbUserModule,
@@ -21,6 +22,8 @@ import { ButtonsComponent } from './buttons/buttons.component';
 import { FormsModule as ngFormsModule } from '@angular/forms';
 import { MyFundsComponent } from './my-funds/my-funds.component';
 import { MyFundsTradeComponent } from './my-funds-trade/my-funds-trade.component';
+import { ChartModule } from 'angular2-chartjs';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 @NgModule({
   imports: [
@@ -37,6 +40,12 @@ import { MyFundsTradeComponent } from './my-funds-trade/my-funds-trade.component
     NbSelectModule,
     NbIconModule,
     ngFormsModule,
+    ChartModule,
+    NgxChartsModule,
+    NbPopoverModule,
+    ThemeModule,
+    NbInputModule,
+    ChartModule
   ],
   declarations: [
     FormsComponent,
