@@ -28,7 +28,7 @@
                 <td>{{fund.code}}</td>
                 <td>{{fund.unitNet}}</td>
                 <td>{{fund.accNet}}</td>
-                <td>{{fund.time}}</td>
+                <td>{{fund.time | date:'yyyy-MM-dd HH:mm'}}</td>
                 <td>
                   <!-- <button (click)="deleteFund(fund.name)" class="btn btn-danger">Delete</button> -->
                     <button (click)="fundDetails(fund.code)" class="btn btn-info" style="margin-left: 10px">Details & Buy</button>

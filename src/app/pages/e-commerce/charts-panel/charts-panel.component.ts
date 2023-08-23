@@ -78,6 +78,7 @@ export class ECommerceChartsPanelComponent  implements OnInit{
     transferOut(){
       this.a=parseFloat(this.transOutNum)
       this.id=4
+      console.log(this.a)
       this.assetsService
       .transforOut(this.id,this.a).subscribe(data => {
         this.gotoRefrash();
@@ -87,6 +88,6 @@ export class ECommerceChartsPanelComponent  implements OnInit{
 
     gotoRefrash() {
       this.ngOnInit();
-      this.router.navigate(['/dashboard']);
+      this.router.navigate(['/pages/dashboard']);
     }
 }
