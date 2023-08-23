@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class FundholdService {
 
-  private baseUrl = 'http://group9.testweb01.eu.org:8080/fundhold';
+  private baseUrl = 'https://portfolio-management-api-project-icg-shanghai-b19-payments.apps.oscluster1.fnkn.p1.openshiftapps.com/fundhold';
 
   constructor(private http: HttpClient) { }
 
