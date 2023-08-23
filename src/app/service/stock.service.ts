@@ -6,11 +6,7 @@ import { Observable } from 'rxjs';
 })
 export class StockService {
 
-<<<<<<< HEAD
   private baseUrl = 'https://portfolio-management-api-project-icg-shanghai-b19-payments.apps.oscluster1.fnkn.p1.openshiftapps.com';
-=======
-  private baseUrl = 'http://localhost:8080';
->>>>>>> ccb400d03e6e4742d77db0a89b901f07d648488a
 
   constructor(private http: HttpClient) { }
 
